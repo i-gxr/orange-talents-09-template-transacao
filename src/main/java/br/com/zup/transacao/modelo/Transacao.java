@@ -1,5 +1,7 @@
 package br.com.zup.transacao.modelo;
 
+import br.com.zup.transacao.response.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.*;
@@ -40,6 +42,19 @@ public class Transacao {
 
     public String getId() {
         return id;
+    }
+
+    public TransacaoCartaoResponse paraTransacaoCartaoResponse() {
+        return new TransacaoCartaoResponse(
+          this.id,
+          this.valor,
+          new EstabelecimentoResponse(
+              this.estabelecimento.getNome(),
+              this.estabelecimento.getCidade(),
+              this.estabelecimento.getEndereco()
+          ),
+          this.efetivadaEm
+        );
     }
 
 }

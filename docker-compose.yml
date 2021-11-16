@@ -170,6 +170,8 @@ services:
       KAFKA_CONSUMER_GROUP: app-transacao
       KAFKA_OFFSET_RESET: latest
       KAFKA_CONSUMER_TOPIC_NAME: transacoes
+      KEYCLOAK_ISSUER_URI: http://keycloak:8080/auth/realms/transacao
+      KEYCLOAK_JWKS_URI: http://keycloak:8080/auth/realms/transacao/protocol/openid-connect/certs
 
 volumes:
   grafana-volume:
